@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Live Chat Wrangler</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        neon: {
+                            pink: '#ff00ff',
+                            blue: '#00ffff',
+                            green: '#00ff00',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8 text-center text-neon-pink animate-pulse">YouTube Live Chat Wrangler</h1>
+        <form id="download-form" class="mb-8">
+            <div class="flex">
+                <input type="text" id="url-input" placeholder="Enter YouTube URL" required
+                    class="flex-grow p-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:border-neon-blue">
+                <button type="submit"
+                    class="px-4 py-2 bg-neon-blue text-gray-900 font-bold rounded-r-lg hover:bg-neon-green transition-colors">
+                    Download Chat
+                </button>
+            </div>
+        </form>
+        <div id="search-container" class="mb-8">
+            <div class="flex">
+                <input type="text" id="search-input" placeholder="Search messages"
+                    class="flex-grow p-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:border-neon-pink">
+                <button id="search-button"
+                    class="px-4 py-2 bg-neon-pink text-gray-900 font-bold rounded-r-lg hover:bg-neon-green transition-colors">
+                    Search
+                </button>
+            </div>
+        </div>
+        <div id="chat-container" class="bg-gray-800 rounded-lg p-4 h-96 overflow-y-auto border border-gray-700"></div>
+    </div>
+    <script src="{{ url_for('static', path='/script.js') }}"></script>
+</body>
+</html>
